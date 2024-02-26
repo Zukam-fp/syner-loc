@@ -1,2 +1,7 @@
-<h1>Stuffs#new</h1>
-<p>Find me in app/views/stuffs/new.html.erb</p>
+<h1>New Stuff</h1>
+
+
+  <%= render "form", stuff: @stuff %>
+
+  <br>
+<%= link_to "Back to stuffs", root_path %>

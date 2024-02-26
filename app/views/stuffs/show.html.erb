@@ -1,2 +1,9 @@
-<h1>Stuffs#show</h1>
-<p>Find me in app/views/stuffs/show.html.erb</p>
+<h2><%= @stuff.name %></h2>
+<p><%= @stuff.price %></p>
+<p><%= @stuff.category %></p>
+  <%= link_to "Delete", stuff_path(@stuff), data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"}  %>
+
+
+</ul>
+<%= link_to "Back to stuffs", root_path %>
+<%= link_to "New Stuff", new_stuff_path %>

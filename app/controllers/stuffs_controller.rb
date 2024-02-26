@@ -9,24 +9,22 @@ class StuffsController < ApplicationController
   end
 
   def new
-    @stuff = stuff.new
+    @stuff = Stuff.new
   end
 
   def create
     @stuff = Stuff.new(stuff_params)
-
-    respond_to do |format|
-      if @stuff.save
-          redirect_to list_url(@list), notice: "List was successfully created."
-
-      else
-          render :new, status: :unprocessable_entity
-
-      end
+    @stuff.user = current_user
+    if @stuff.save
+      redirect_to root_path(@stuff)
+    else
+      render :new
     end
   end
 
   def destroy
+    @stuff.destroy
+    redirect_to root_path
   end
 
   private
@@ -36,6 +34,6 @@ class StuffsController < ApplicationController
   end
 
   def stuff_params
-    params.require(:stuff).permit(:name)
+    params.require(:stuff).permit(:name, :category, :price)
   end
 end
