@@ -23,6 +23,8 @@ class StuffsController < ApplicationController
   end
 
   def destroy
+    @stuff.destroy
+    redirect_to root_path
   end
 
   private
@@ -32,6 +34,6 @@ class StuffsController < ApplicationController
   end
 
   def stuff_params
-    params.require(:stuff).permit(:name)
+    params.require(:stuff).permit(:name, :category, :price)
   end
 end

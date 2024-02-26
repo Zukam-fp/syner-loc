@@ -1,12 +1,9 @@
 <h2><%= @stuff.name %></h2>
-<ul>
 <p><%= @stuff.price %></p>
 <p><%= @stuff.category %></p>
-</ul>
-  <%= link_to 'Destroy', @stuff, method: :delete, data:  confirm: 'Are you sure?' %>
+  <%= link_to "Delete", stuff_path(@stuff), data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"}  %>
 
 
-<% end %>
 </ul>
 <%= link_to "Back to stuffs", root_path %>
 <%= link_to "New Stuff", new_stuff_path %>
