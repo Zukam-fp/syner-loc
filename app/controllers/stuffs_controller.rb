@@ -9,18 +9,16 @@ class StuffsController < ApplicationController
   end
 
   def new
-    @stuff = stuff.new
+    @stuff = Stuff.new
   end
 
   def create
     @stuff = Stuff.new(stuff_params)
-
-    respond_to do |format|
-      if @stuff.save
-        redirect_to list_url(@stuff), notice: "Stuff was successfully created."
-      else
-        render :new, status: :unprocessable_entity
-      end
+    @stuff.user = current_user
+    if @stuff.save
+      redirect_to root_path(@stuff)
+    else
+      render :new
     end
   end
 
