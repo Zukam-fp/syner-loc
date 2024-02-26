@@ -1,2 +1,5 @@
-<h1>Bookings#edit</h1>
-<p>Find me in app/views/bookings/edit.html.erb</p>
+<%= simple_form_for([@stuff, @booking]) do |f| %>
+  <%= f.input :date_starting %>
+  <%= f.input :date_ending %>
+  <%= f.submit %>
+<% end %>
