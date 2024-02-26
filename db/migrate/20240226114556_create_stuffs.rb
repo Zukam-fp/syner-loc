@@ -4,6 +4,7 @@ class CreateStuffs < ActiveRecord::Migration[7.1]
       t.string :name
       t.float :price
       t.string :category
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end
