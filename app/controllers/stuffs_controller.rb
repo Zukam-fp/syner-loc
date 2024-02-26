@@ -17,11 +17,9 @@ class StuffsController < ApplicationController
 
     respond_to do |format|
       if @stuff.save
-          redirect_to list_url(@list), notice: "List was successfully created."
-
+        redirect_to list_url(@stuff), notice: "Stuff was successfully created."
       else
-          render :new, status: :unprocessable_entity
-
+        render :new, status: :unprocessable_entity
       end
     end
   end

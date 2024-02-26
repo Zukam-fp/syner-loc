@@ -4,11 +4,11 @@ Rails.application.routes.draw do
   # get 'stuffs/new'
   # get 'stuffs/create'
   # get 'stuffs/destroy'
-  resources :users do
-    resources :stuffs do
+  resources :users
+
+  resources :stuffs do
       resources :bookings
     end
-  end
   devise_for :users
   root to: "index#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
