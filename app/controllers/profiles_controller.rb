@@ -1,10 +1,13 @@
 class ProfilesController < ApplicationController
+<<<<<<< HEAD
   before_action :set_profile, only: %i[show]
 
   def index
     @profiles = Profile.all
   end
 
+=======
+>>>>>>> master
   def show
   end
 
