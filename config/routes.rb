@@ -8,8 +8,10 @@ Rails.application.routes.draw do
   root to: "stuffs#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
     resources :stuffs, except: :index do
-      resources :bookings
+      resources :bookings, only: [:new, :create]
     end
+
+  resources :bookings, only: [:edit, :update]
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
