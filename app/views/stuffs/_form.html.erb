@@ -6,9 +6,10 @@
     <%= f.input :name %>
     <%= f.input :category, collection: ["Foot", "Basket", "Badminton", "Yoga", "Mini-golf", "volley-ball", "Ping pong", "Tennis", "Hand-ball", "Pilate"]%>
     <%= f.input :price %>
+    <%= f.input :image, as: :file, input_html: { mime_type: 'image/*' } %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.submit "Créer le stuff", class: "btn btn-primary" %>
   </div>
 <% end %>
