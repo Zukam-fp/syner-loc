@@ -1,29 +1,32 @@
 <div class="container">
+      <%= link_to raw('<i class="fa-solid fa-arrow-left"></i>'), root_path, class: "mt-5 fleche"%>
+
   <p style="color: green"><%= notice %></p>
-  <h1>Profiles</h1>
-  <h2>Your Booking</h2>
+  <h1 style="font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 32px; font-weight: bold;">Profiles</h1>
+  <h2 style="font-family: 'Helvetica Neue', Arial, sans-serif; text-align: center; font-size: 32px; font-weight: bold;">Your bookings</h2>
+
     <div class="cards">
       <% @bookings.each do |booking| %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),">
-          <ul>
-            <li><%= booking.stuff.name %></li>
-            <li><%= booking.stuff.category %></li>
-            <li><%= booking.date_starting %></li>
-            <li><%= booking.date_ending %></li>
-          </ul>
-        <% end %>
-      </div>
+        <div class="card-category-profile" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),">
+            <h3><%= booking.stuff.name %></h3>
+            <p><%= booking.stuff.category %></p>
+            <p> from: <%= booking.date_starting %>, to: <%= booking.date_ending %></p>
+        </div>
+      <% end %>
     </div>
 
+    <p></p>
+    <p></p>
+  <h3 style="font-family: 'Helvetica Neue', Arial, sans-serif; text-align: center; font-size: 32px; font-weight: bold;">Your stuffs</h3>
 
-  <h3>Your stuff</h3>
       <div class="cards">
         <% @stuffs.each do |stuff| %>
           <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3));">
             <ul>
               <li><%= stuff.name %></li>
               <li><%= stuff.category %></li>
-              <li><%= stuff.price %></li>
+              <li><%= stuff.price %> €</li>
+              <li><%=link_to raw('<i class="fa-solid fa-trash"></i>'), stuff_path(stuff), data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"}, class: "bin" %></li>
             </ul>
           </div>
         <% end %>

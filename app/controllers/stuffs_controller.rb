@@ -17,7 +17,7 @@ class StuffsController < ApplicationController
     @stuff = Stuff.new(stuff_params)
     @stuff.user = current_user
     if @stuff.save
-      redirect_to root_path(@stuff)
+      redirect_to profiles_path
     else
       render :new
     end
@@ -25,7 +25,7 @@ class StuffsController < ApplicationController
 
   def destroy
     @stuff.destroy
-    redirect_to root_path
+    redirect_to profiles_path
   end
 
   private
