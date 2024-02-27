@@ -1,24 +1,23 @@
+require_relative '../models/profile'
 class ProfilesController < ApplicationController
-<<<<<<< HEAD
-  before_action :set_profile, only: %i[show]
+  # before_action :set_profile, only: %i[show]
 
-  def index
-    @profiles = Profile.all
-  end
+  # def index
+  #   @profiles = Profile.all
+  # end
 
-=======
->>>>>>> master
   def show
   end
 
-  private
 
-  def set_profile
-    @profile = Profile.find(params[:id])
-  end
+  # def set_profile
+  #   @profile = Profile.find(params[:id])
+  # end
 
-  def profile_params
-    params.require(:profile).permit(:name)
-  end
+  # private
+
+  # def profile_params
+  #   params.require(:profile).permit(:name , :email, :password, :password_confirmation, :photo, :bio, :location, :price_per_day, :rating, :number_of_reviews, :user_id)
+  # end
 
 end

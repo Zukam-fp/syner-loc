@@ -5,8 +5,8 @@
 <% @stuffs.each do |stuff| %>
     <%= render stuff %>
     <p>
-      <%= link_to 'Show', stuff %>
-      <%= link_to 'Destroy', stuff, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to 'Show', stuff, class:"btn btn-outline-success" %>
+      <%= link_to 'Destroy', stuff, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger" %>
     </p>
   <% end %>
-  <%= link_to "New Stuff", new_stuff_path %>
+  <%= link_to "New Stuff", new_stuff_path, class:"btn btn-outline-secondary" %>
