@@ -1,15 +1,32 @@
-<h2><%= @stuff.name %></h2>
-<p><%= @stuff.price %></p>
-<p><%= @stuff.category %></p>
-  <%= link_to "Delete", stuff_path(@stuff), data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"}, class:"btn btn-outline-danger"  %>
+<div class="container">
+<br>
+<br>
+<div class="card-product">
+  <img src="#" />
+  <div class="card-product-infos">
+    <h2><%= @stuff.name.capitalize %>
+    <p><%= @stuff.price %>$</p>
+    <strong><%= @stuff.category %></strong></h2>
+  </div>
+</div>
 
-
-</ul>
-<%= link_to "Back to stuffs", root_path, class:"btn btn-outline-primary" %>
-<%= link_to "New Stuff", new_stuff_path, class:"btn btn-outline-secondary" %>
 
 <%= simple_form_for([@stuff, @booking]) do |f| %>
   <%= f.input :date_starting %>
   <%= f.input :date_ending %>
   <%= f.submit %>
 <% end %>
+<br>
+<br>
+ <%= link_to "Delete", stuff_path(@stuff), data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"}, class:"btn btn-outline-danger"  %>
+
+
+</ul>
+<%= link_to "Back to stuffs", root_path, class:"btn btn-outline-primary" %>
+<%= link_to "New Stuff", new_stuff_path, class:"btn btn-outline-secondary" %>
+
+
+
+
+
+</div>
