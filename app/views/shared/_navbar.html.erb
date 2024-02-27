@@ -33,6 +33,7 @@
             <%= image_tag "https://th.bing.com/th/id/R.c0dbb20bc760ecb78914c036b9eda1f6?rik=8ctWTGjbjeDV7A&riu=http%3a%2f%2fimages6.fanpop.com%2fimage%2fphotos%2f41400000%2fFive-nights-at-Shrek-s-shrek-41412516-1280-720.jpg&ehk=lewhXMn9DFuL5bDGJItCDKMUjSxICBO1gD1XcxCFg%2bQ%3d&risl=&pid=ImgRaw&r=0", class: "avatar", alt: "dropdown menu" %>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Profil", profiles_path, class: "dropdown-item" %>
               <%= link_to "Action", "#", class: "dropdown-item" %>
               <%= link_to "Another action", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
