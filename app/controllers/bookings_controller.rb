@@ -19,7 +19,7 @@ class BookingsController < ApplicationController
     @booking.stuff = @stuff
     @booking.user = current_user
     if @booking.save
-      redirect_to stuff_path(@stuff)
+      redirect_to profiles_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -40,7 +40,7 @@ class BookingsController < ApplicationController
     @booking.stuff = @stuff
     @booking.user = current_user
     if @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to profiles_path
     else
       render :edit, status: :unprocessable_entity
     end
