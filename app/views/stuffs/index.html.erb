@@ -1,12 +1,25 @@
+<div>
 <h1>Stuffs</h1>
 
 
+  <div class="container">
 
-<% @stuffs.each do |stuff| %>
-    <%= render stuff %>
-    <p>
-      <%= link_to 'Show', stuff, class:"btn btn-outline-success" %>
-      <%= link_to 'Destroy', stuff, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger" %>
-    </p>
-  <% end %>
-  <%= link_to "New Stuff", new_stuff_path, class:"btn btn-outline-secondary" %>
+
+
+    <div class="cards">
+
+
+
+
+  <% @stuffs.each do |stuff| %>
+<%= link_to stuff_path(stuff) do %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),">
+        <%= render stuff %>
+
+      </div>
+    <% end %>
+    <% end %>
+    </div>
+  </div>
+    <%= link_to "New Stuff", new_stuff_path, class:"btn btn-outline-secondary" %>
+</div>
