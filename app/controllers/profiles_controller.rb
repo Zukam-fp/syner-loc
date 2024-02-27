@@ -8,7 +8,7 @@ class ProfilesController < ApplicationController
 
   def show
     @bookings = Booking.where(user: current_user)
-
+    @stuffs = Stuff.where(user: current_user)
   end
 
 
