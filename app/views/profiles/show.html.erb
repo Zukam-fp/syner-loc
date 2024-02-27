@@ -1,20 +1,31 @@
 <div class="container">
-<p style="color: green"><%= notice %></p>
+  <p style="color: green"><%= notice %></p>
+  <h1>Profiles</h1>
+  <h2>Your Booking</h2>
+    <div class="cards">
+      <% @bookings.each do |booking| %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),">
+          <ul>
+            <li><%= booking.stuff.name %></li>
+            <li><%= booking.stuff.category %></li>
+            <li><%= booking.date_starting %></li>
+            <li><%= booking.date_ending %></li>
+          </ul>
+        <% end %>
+      </div>
+    </div>
 
-<h1>Profiles</h1>
-<p>Your Booking</p>
-<ul>
-<% @bookings.each do |booking| %>
-<li>
-<%= booking.stuff.name %>
-<%= booking.date_starting %>
-<%= booking.date_ending %>
-</li>
 
-
-<% end %>
-</ul>
-  <p>
-    <%= link_to "Back to Stuffs", root_path, class:"btn btn-outline-primary" %>
-  </p>
+  <h3>Your stuff</h3>
+      <div class="cards">
+        <% @stuffs.each do |stuff| %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3));">
+            <ul>
+              <li><%= stuff.name %></li>
+              <li><%= stuff.category %></li>
+              <li><%= stuff.price %></li>
+            </ul>
+          </div>
+        <% end %>
+      </div>
 </div>
