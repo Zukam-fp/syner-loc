@@ -29,7 +29,7 @@ class StuffsController < ApplicationController
 
   def destroy
     @stuff.destroy
-    redirect_to root_path
+    redirect_to profiles_path
   end
 
   private
