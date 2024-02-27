@@ -7,3 +7,9 @@
 </ul>
 <%= link_to "Back to stuffs", root_path, class:"btn btn-outline-primary" %>
 <%= link_to "New Stuff", new_stuff_path, class:"btn btn-outline-secondary" %>
+
+<%= simple_form_for([@stuff, @booking]) do |f| %>
+  <%= f.input :date_starting %>
+  <%= f.input :date_ending %>
+  <%= f.submit %>
+<% end %>
