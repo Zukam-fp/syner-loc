@@ -15,9 +15,13 @@ class StuffsController < ApplicationController
 
   def create
     @stuff = Stuff.new(stuff_params)
-    @stuff.user = current_user
     if @stuff.save
-      redirect_to profiles_path
+      if params[:stuff][:image]
+        cloudinary_image = Cloudinary::Uploader.upload(params[:stuff][:image])
+        @stuff.image = cloudinary_image['url']
+        @stuff.save
+      end
+      redirect_to @stuff
     else
       render :new
     end
@@ -35,6 +39,6 @@ class StuffsController < ApplicationController
   end
 
   def stuff_params
-    params.require(:stuff).permit(:name, :category, :price)
+    params.require(:stuff).permit(:name, :category, :price, :image)
   end
 end
