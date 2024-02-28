@@ -4,21 +4,23 @@
 
 
 
+<div style="width: 50%; height: 600px; margin: 0 auto; position: relative; overflow: hidden; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+
 <div class="cards">
   <% @stuffs.each do |stuff| %>
     <div class="main">
+      <%= link_to stuff_path(stuff) do %>
       <div class = "card">
         <img src="https://images.unsplash.com/photo-1656618020911-1c7a937175fd?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NTc1MzQyNTE&ixlib=rb-1.2.1&q=80" alt="">
         <div class="card-content">
           <%= render stuff %>
-          <a href="#" class="button">
-              Find out more
-            <span class="material-symbols-outlined">
-                arrow_right_alt
-            </span>
-          </a>
         </div>
       </div>
+        <% end %>
     </div>
   <% end %>
 </div>
