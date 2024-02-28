@@ -1,27 +1,27 @@
-<div>
-<h1>Stuffs</h1>
-
-
-  <div class="container">
-
-
-
-    <div class="cards">
+<div class="d-flex justify-content-center title">
+  <h1>Stuffs</h1>
+</div>
 
 
 
-
+<div class="cards">
   <% @stuffs.each do |stuff| %>
-<%= link_to stuff_path(stuff) do %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),">
-        <%= render stuff %>
-
+    <div class="main">
+      <div class = "card">
+        <img src="https://images.unsplash.com/photo-1656618020911-1c7a937175fd?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NTc1MzQyNTE&ixlib=rb-1.2.1&q=80" alt="">
+        <div class="card-content">
+          <%= render stuff %>
+          <a href="#" class="button">
+              Find out more
+            <span class="material-symbols-outlined">
+                arrow_right_alt
+            </span>
+          </a>
+        </div>
       </div>
-    <% end %>
-    <% end %>
     </div>
-  </div>
-    <div>
+  <% end %>
+</div>
+    <div class="d-flex justify-content-center" >
       <%= link_to "New Stuff", new_stuff_path, class:"btn btn-outline-secondary" %>
     </div>
-</div>
