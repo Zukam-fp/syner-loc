@@ -3,6 +3,13 @@ class StuffsController < ApplicationController
 
   def index
     @stuffs = Stuff.all
+    @markers = @stuffs.geocoded.map do |stuff|
+      {
+        lat: stuff.latitude,
+        lng: stuff.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { stuff: stuff })
+      }
+    end
   end
 
   def show
