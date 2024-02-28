@@ -11,9 +11,12 @@
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
   </head>
 
-  <body>
+  <body style="background-color: #C499F3">
    <%= render "shared/navbar" %>
-    <%= yield %>
+   <div class="escape-navbar">
+      <%= yield %>
+   </div>
+
     <footer>
     <%= render "shared/footer" %>
     </footer>
