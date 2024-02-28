@@ -2,7 +2,10 @@
 <br>
 <br>
 <div class="card-product">
-  <%= cl_image_tag @stuff.image.key,class: "card-product img"  %>
+  <% if @stuff.image.attached? %>
+   <%= cl_image_tag @stuff.image.key,class: "card-product img"  %>
+   <% else %>
+   <% end %>
   <div class="card-product-infos">
     <h2><%= @stuff.name.capitalize %>
     <p><%= @stuff.price %>$</p>
@@ -10,11 +13,13 @@
   </div>
 </div>
 
-<%= simple_form_for([@stuff, @booking]) do |f| %>
-  <%= f.input :date_starting %>
-  <%= f.input :date_ending %>
-  <%= f.submit %>
+  <h2>Book a flat</h2>
+  <%= simple_form_for [@stuff, @booking], data: { controller: 'flatpickr' } do |f| %>
+  <%= f.input :date_starting, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
+  <%= f.input :date_ending, as: :string, input_html: { data: { flatpickr_target: "endTime" }, id: 'end_time' } %>
+  <%= f.submit 'Schedule your appointment' %>
 <% end %>
+
 <br>
 <br>
  <%= link_to "Delete", stuff_path(@stuff), data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"}, class:"btn btn-outline-danger"  %>
@@ -23,8 +28,6 @@
 </ul>
 <%= link_to "Back to stuffs", root_path, class:"btn btn-outline-primary" %>
 <%= link_to "New Stuff", new_stuff_path, class:"btn btn-outline-secondary" %>
-
-
 
 
 
