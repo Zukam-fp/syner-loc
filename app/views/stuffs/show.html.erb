@@ -2,14 +2,13 @@
 <br>
 <br>
 <div class="card-product">
-  <img src="#" />
+  <%= cl_image_tag @stuff.image.key,class: "card-product img"  %>
   <div class="card-product-infos">
     <h2><%= @stuff.name.capitalize %>
     <p><%= @stuff.price %>$</p>
     <strong><%= @stuff.category %></strong></h2>
   </div>
 </div>
-
 
 <%= simple_form_for([@stuff, @booking]) do |f| %>
   <%= f.input :date_starting %>
