@@ -10,9 +10,12 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body style="background-color: #C499F3">
    <%= render "shared/navbar" %>
-    <%= yield %>
+   <div class="escape-navbar">
+      <%= yield %>
+   </div>
+
     <footer>
     <%= render "shared/footer" %>
     </footer>
