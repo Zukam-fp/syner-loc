@@ -15,15 +15,11 @@ class StuffsController < ApplicationController
 
   def create
     @stuff = Stuff.new(stuff_params)
+    @stuff.user = current_user
     if @stuff.save
-      if params[:stuff][:image]
-        cloudinary_image = Cloudinary::Uploader.upload(params[:stuff][:image])
-        @stuff.image = cloudinary_image['url']
-        @stuff.save
-      end
-      redirect_to @stuff
+      redirect_to stuff_path(@stuff)
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
