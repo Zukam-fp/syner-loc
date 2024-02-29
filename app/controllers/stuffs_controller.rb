@@ -10,6 +10,13 @@ class StuffsController < ApplicationController
         info_window_html: render_to_string(partial: "info_window", locals: { stuff: stuff })
       }
     end
+    if params[:query].present?
+      sql_subquery = <<~SQL
+        stuffs.name ILIKE :query
+        OR stuffs.category ILIKE :query
+      SQL
+      @stuffs = @stuffs.where(sql_subquery, query: "%#{params[:query]}%")
+    end
   end
 
   def show

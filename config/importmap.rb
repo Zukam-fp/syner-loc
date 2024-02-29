@@ -27,4 +27,3 @@ pin "suggestions" # @1.7.1
 pin "xtend" # @4.0.2
 pin "flatpickr" # @4.6.13
 pin "flatpickrRangePlugin", to: "https://ga.jspm.io/npm:flatpickr@4.6.13/dist/esm/plugins/rangePlugin.js"
-
