@@ -6,15 +6,13 @@
   display: flex;
   border: 1px solid #231f1f;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  width: 625px;
+  border-radius: 20px;
 }
 
 .card-product img {
-  height: 100%;
-  width: 120px;
-  object-fit: cover;
+  height: auto;
+  width: auto;
+  margin-left: auto;
 }
 
 .card-product h2 {
@@ -34,4 +32,10 @@
 
 .card-product .card-product-infos {
   padding: 16px;
+}
+
+.card-product h2,
+.card-product p,
+.card-product .card-product-infos {
+  margin-left: auto; /* Décalez le contenu vers la droite */
 }
