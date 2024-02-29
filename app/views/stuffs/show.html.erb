@@ -10,7 +10,7 @@
    <br>
    <h2><%= @stuff.name.capitalize %></h2>
    <h2><%= @stuff.category %></h2>
-   <p><%= @stuff.price %>$</p>
+   <p><%= @stuff.price %>€/jours</p>
   <div class="card-product-infos">
    <% if @stuff.image.attached? %>
    <%= cl_image_tag @stuff.image.key,class: "card-product img"  %>
