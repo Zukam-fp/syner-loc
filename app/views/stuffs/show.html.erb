@@ -1,6 +1,7 @@
 <div class="container">
 <br>
 <br>
+<%= link_to raw('<i class="fa-solid fa-arrow-left"></i>'), root_path, class: "mt-5 fleche" %>
 <div class="card-product">
   <% if @stuff.image.attached? %>
    <%= cl_image_tag @stuff.image.key,class: "card-product img"  %>
@@ -29,9 +30,5 @@
 
 
 </ul>
-<%= link_to "Back to stuffs", root_path, class:"btn btn-outline-primary" %>
-<%= link_to "New Stuff", new_stuff_path, class:"btn btn-outline-secondary" %>
-
-
 
 </div>
