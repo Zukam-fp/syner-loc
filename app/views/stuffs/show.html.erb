@@ -18,11 +18,14 @@
    <% end %>
   </div>
 </div>
+
   <%= simple_form_for [@stuff, @booking], data: { controller: 'flatpickr' } do |f| %>
-  <%= f.input :date_starting, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
-  <%= f.input :date_ending, as: :string, input_html: { data: { flatpickr_target: "endTime" }, id: 'end_time' } %>
-  <%= f.submit 'Book', class: "btn btn-outline-info" %>
-<% end %>
+    <%= f.input :date_starting, as: :string, input_html: { data: { flatpickr_target: "startTime", action: "change->flatpickr#dynamicPrice" } } %>
+    <%= f.input :date_ending, as: :string, input_html: { data: { flatpickr_target: "endTime", action: "change->flatpickr#dynamicPrice" }, id: 'end_time' } %>
+    <p>Réservation pour <span data-flatpickr-target="totalNights">0</span> jours</p>
+    <p>Prix total : <span data-flatpickr-target="totalPrice" data-unit-price="<%= @stuff.price %>">0</span> € </p>
+    <%= f.submit 'Book', class: "btn btn-outline-info" %>
+  <% end %>
 
 <br>
 <br>
