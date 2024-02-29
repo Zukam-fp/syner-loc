@@ -22,7 +22,10 @@
 
 <br>
 <br>
- <%= link_to "Delete", stuff_path(@stuff), data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"}, class:"btn btn-outline-danger"  %>
+  <% if current_user == @stuff.user%>
+      <%=link_to "Delete", stuff_path(@stuff), data: { turbo_method: :delete, confirm: "Are you sure?" } %>
+    <% else %>
+    <% end %>
 
 
 </ul>

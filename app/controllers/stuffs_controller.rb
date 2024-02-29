@@ -38,8 +38,13 @@ class StuffsController < ApplicationController
   end
 
   def destroy
-    @stuff.destroy
-    redirect_to profiles_path
+    @stuff = Stuff.find(params[:id])
+    if @stuff.user == current_user
+      @stuff.destroy
+      redirect_to root_path, notice: 'Le stuff a bien été supprimé.'
+    else
+      redirect_to root_path, alert: 'Vous ne pouvez pas supprimer ce stuff.'
+    end
   end
 
   private
