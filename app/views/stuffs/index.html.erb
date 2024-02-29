@@ -4,10 +4,7 @@
 
 
 
-<div style="width: 50%; height: 600px; margin: 0 auto; position: relative; overflow: hidden; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
 
 
 <div class="cards">
@@ -24,6 +21,22 @@
     </div>
   <% end %>
 </div>
-    <div class="d-flex justify-content-center" >
-      <%= link_to "New Stuff", new_stuff_path, class:"btn btn-outline-secondary" %>
-    </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div style="width: 50%; height: 600px; margin: 0 auto; position: relative; overflow: hidden; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+<br>
+<br>
+<div class="d-flex justify-content-center" >
+  <%= link_to "New Stuff", new_stuff_path, class:"btn btn-outline-secondary" %>
+</div>
+<br>
+<br>
