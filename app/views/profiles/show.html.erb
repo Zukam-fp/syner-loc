@@ -4,14 +4,22 @@
   <h1 style="font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 32px; font-weight: bold;">Profiles</h1>
   <h2 style="font-family: 'Helvetica Neue', Arial, sans-serif; text-align: center; font-size: 32px; font-weight: bold;">Your bookings</h2>
   <div class="cards">
-    <% @bookings.each do |booking| %>
-      <div class="card-category-profile" style="background-color: #f9f9f9; border: 1px solid #ddd; padding: 20px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-        <h3 style="font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 18px; font-weight: bold;"><%= booking.stuff.name %></h3>
-        <p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; color: #666;"><%= booking.stuff.category %></p>
-        <p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; color: #333;">From: <%= booking.date_starting %>, To: <%= booking.date_ending %></p>
-      </div>
-      <% end %>
+  <% @bookings.each do |booking| %>
+    <div class="card-category-profile" style="background-color: #f9f9f9; border: 1px solid #ddd; padding: 20px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+      <h3 style="font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 18px; font-weight: bold;"><%= booking.stuff.name %></h3>
+      <p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; color: #666;"><%= booking.stuff.category %></p>
+
+      <% date_starting = booking.date_starting.to_date %>
+      <% date_ending = booking.date_ending.to_date %>
+      <% nbr_of_nights = (date_ending - date_starting).to_i %>
+      <% total_price = booking.stuff.price * nbr_of_nights %>
+
+      <p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; color: #666;">Total Days: <%= nbr_of_nights %></p>
+      <p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; color: #666;">Total Price: <%= total_price %> €</p>
     </div>
+  <% end %>
+</div>
+
 <p></p>
 <p></p>
 <p></p>
