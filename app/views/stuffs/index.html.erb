@@ -11,7 +11,7 @@
 <br>
 
 <div style="display: flex;">
-  <div class="cards" style="display: inline-grid;">
+  <div class="cards" style="display: inline-grid; margin-block-end: auto;">
     <% @stuffs.each do |stuff| %>
       <div class="main">
         <%= link_to stuff_path(stuff) do %>
@@ -29,19 +29,10 @@
       </div>
     <% end %>
   </div>
-  <br>
-  <br>
-  <br>
-  <br>
 
-  <div style="width: 50%; margin-right: 10px; margin-left: 10px; position: relative; overflow: hidden; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);"
+  <div style=" height: 100vh; width: 50%; margin-right: 10px; margin-left: 10px; position: relative; overflow: hidden; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
-<br>
-<br>
-<br>
-<br>
-<br>
