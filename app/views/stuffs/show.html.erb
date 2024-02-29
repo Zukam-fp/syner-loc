@@ -1,19 +1,19 @@
 <div class="container">
 <br>
 <br>
+<h2>Book a stuff</h2>
 <div class="card-product">
-  <% if @stuff.image.attached? %>
+   <br>
+   <h2><%= @stuff.name.capitalize %></h2>
+   <h2><%= @stuff.category %></h2>
+   <p><%= @stuff.price %>$</p>
+  <div class="card-product-infos">
+   <% if @stuff.image.attached? %>
    <%= cl_image_tag @stuff.image.key,class: "card-product img"  %>
    <% else %>
    <% end %>
-  <div class="card-product-infos">
-    <h2><%= @stuff.name.capitalize %>
-    <p><%= @stuff.price %>$</p>
-    <strong><%= @stuff.category %></strong></h2>
   </div>
 </div>
-
-  <h2>Book a flat</h2>
   <%= simple_form_for [@stuff, @booking], data: { controller: 'flatpickr' } do |f| %>
   <%= f.input :date_starting, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
   <%= f.input :date_ending, as: :string, input_html: { data: { flatpickr_target: "endTime" }, id: 'end_time' } %>
