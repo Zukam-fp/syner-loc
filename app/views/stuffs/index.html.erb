@@ -2,9 +2,6 @@
   <h1>Stuffs</h1>
 </div>
 
-
-
-
 <br>
 <br>
 <div class="d-flex justify-content-center" >
@@ -13,7 +10,7 @@
 <br>
 <br>
 
-<div class="container" style="display: -webkit-inline-box;">
+<div style="display: flex;">
   <div class="cards" style="display: inline-grid;">
     <% @stuffs.each do |stuff| %>
       <div class="main">
@@ -33,7 +30,7 @@
   <br>
   <br>
 
-  <div style="width: 60%; height: 665px; margin: 0 auto; position: relative; overflow: hidden; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);"
+  <div style="width: 50%; margin-right: 10px; margin-left: 10px; position: relative; overflow: hidden; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
