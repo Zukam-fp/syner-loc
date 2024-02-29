@@ -16,12 +16,16 @@
       <div class="main">
         <%= link_to stuff_path(stuff) do %>
         <div class = "card">
-          <img src="https://images.unsplash.com/photo-1656618020911-1c7a937175fd?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NTc1MzQyNTE&ixlib=rb-1.2.1&q=80" alt="">
+          <% if stuff.image.attached? %>
+            <%= cl_image_tag stuff.image.key,class: "card-product img"  %>
+          <% else %>
+            <%= image_tag "multisport.jpg", alt: "sport", class: "card-product img" %>
+          <% end %>
           <div class="card-content">
-            <%= render stuff %>
+           <%= render stuff %>
           </div>
         </div>
-          <% end %>
+      <% end %>
       </div>
     <% end %>
   </div>
