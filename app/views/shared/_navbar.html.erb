@@ -1,8 +1,8 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">
-    <img src="/app/assets/images/logo-syner.png" width="35" height="35" alt="">
-  </a>
+  <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag "https://files.slack.com/files-pri/T02NE0241-F06LY37DQA1/logo-syner.png" %>
+    <% end %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -10,13 +10,14 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      <%= link_to "Home", root_path, class: "nav-link" %>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <%= link_to "Profil", profiles_path, class: "nav-link" %>
       </li>
 
       <li class="nav-item dropdown">
+
   <button class="btn btn-secondary dropdown-toggle" type="button" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Category
   </button>
@@ -27,6 +28,13 @@
             </div>
           </li>
 
+      <li class="nav-item">
+        <% if current_user %>
+          <%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link" %>
+        <% else %>
+          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+        <% end %>
+      </li>
 
     </ul>
       <%= form_with url: root_path, method: :get, class: "d-flex" do %>
