@@ -19,15 +19,25 @@
       <% end %>
 
       <li class="nav-item dropdown">
-        <button class="btn btn-secondary btn-sm dropdown-toggle boutondropdown" type="button" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Category
-        </button>
-        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-          <%= link_to "Foot", root_path(query: "foot"), class:"dropdown-item" %>
-          <%= link_to "Basket", root_path(query: "basket"), class:"dropdown-item" %>
-          <%= link_to "Tennis de table", root_path(query: "ping pong"), class:"dropdown-item" %>
-        </div>
-      </li>
+
+  <button class="btn btn-secondary btn-sm dropdown-toggle boutondropdown" type="button" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Category
+  </button>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Foot", root_path(query: "foot"), class:"dropdown-item" %>
+              <%= link_to "Basket", root_path(query: "basket"), class:"dropdown-item" %>
+              <%= link_to "Badminton", root_path(query: "badminton"), class:"dropdown-item" %>
+              <%= link_to "Yoga", root_path(query: "yoga"), class:"dropdown-item" %>
+              <%= link_to "Mini-Golf", root_path(query: "mini golf"), class:"dropdown-item" %>
+              <%= link_to "Volley-Ball", root_path(query: "volley ball"), class:"dropdown-item" %>
+              <%= link_to "Ping-Pong", root_path(query: "ping pong"), class:"dropdown-item" %>
+              <%= link_to "Tennis", root_path(query: "tennis"), class:"dropdown-item" %>
+              <%= link_to "HandBall", root_path(query: "handball"), class:"dropdown-item" %>
+              <%= link_to "Pilate", root_path(query: "pilate"), class:"dropdown-item" %>
+
+            </div>
+          </li>
+
     </ul>
 
     <ul class="navbar-nav ml-auto">
