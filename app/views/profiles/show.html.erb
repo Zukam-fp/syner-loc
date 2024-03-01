@@ -22,7 +22,9 @@
 
 
   </div>
-  <div class="container",style="height: 50vh">
+
+  <div class="container bzr"style="margin-top: 100px;">
+
   <h3 style="font-family: 'Helvetica Neue', Arial, sans-serif; text-align: center; font-size: 32px; font-weight: bold;">Your stuffs</h3>
   <div class="cards">
   <% @stuffs.each do |stuff| %>
@@ -30,11 +32,15 @@
       <h3 style="font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 18px; font-weight: bold;"><%= stuff.name %></h3>
       <p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; color: #666;"><%= stuff.category %></p>
       <p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; color: #333;">Price: <%= stuff.price %> €</p>
+      <% if stuff.image.attached? %>
+        <%= cl_image_tag stuff.image.key,class: "card-product img card-prof"  %>
+      <% else %>
+        <%= image_tag "multisport.jpg", alt: "sport", class: "card-product img card-prof" %>
+      <% end %>
       <div style="text-align: right;">
         <%= link_to raw('<i class="fa-solid fa-trash"></i>'), stuff_path(stuff), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "bin", style: "color: #999; font-size: 16px;" %>
       </div>
     </div>
   <% end %>
 </div>
-
 </div>
