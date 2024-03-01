@@ -1,5 +1,6 @@
 class StuffsController < ApplicationController
   before_action :set_stuff, only: %i[show destroy]
+  before_action :authenticate_user!, only: [:new, :create]
 
   def index
     @stuffs = Stuff.all
