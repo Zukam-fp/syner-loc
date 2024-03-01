@@ -9,7 +9,6 @@ body {
 }
 
 .container {
-  height: 100vh;
   width: 100%;
   position: relative;
   text-align: center;
@@ -69,9 +68,6 @@ body {
   animation-delay: 0.5s;
 }
 
-.seventh-animation {
-  animation-delay: 1s;
-}
 
 .img-container img {
   object-fit: cover;
@@ -106,4 +102,8 @@ body {
   #img-6 {
     display: none;
   }
+}
+
+.banner-change {
+  height: 100vh;
 }

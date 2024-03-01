@@ -3,21 +3,25 @@
 <br>
 
 <h2>Book a stuff</h2>
-
 <%= link_to raw('<i class="fa-solid fa-arrow-left"></i>'), root_path, class: "mt-5 fleche" %>
+<div class="card-product-infos" style="display: flex; align-items: center;">
+  <% if @stuff.image.attached? %>
+    <%= cl_image_tag @stuff.image.key, class: "card-product img" %>
+  <% else %>
+    <!-- Ajoutez un message ou un contenu alternatif ici si aucune image n'est attachée -->
+  <% end %>
+  <div class="card-product" style="width: 650px;">
+    <br>
+    <h2><%= @stuff.name.capitalize %></h2>
+    <h2><%= @stuff.category %></h2>
 
-<div class="card-product" style="margin-left: 240px;">
-   <br>
-   <h2><%= @stuff.name.capitalize %></h2>
-   <h2><%= @stuff.category %></h2>
-   <p><%= @stuff.price %>€/jours</p>
-  <div class="card-product-infos">
-   <% if @stuff.image.attached? %>
-   <%= cl_image_tag @stuff.image.key,class: "card-product img"  %>
-   <% else %>
-   <% end %>
+    <p><%= @stuff.price %>€/day</p>
   </div>
 </div>
+
+  <% if current_user == @stuff.user %>
+  <%= link_to raw('<i class="fa-solid fa-pen-to-square"></i>'), edit_stuff_path(@stuff) %>
+  <% else %>
 
   <%= simple_form_for [@stuff, @booking], data: { controller: 'flatpickr' } do |f| %>
     <%= f.input :date_starting, as: :string, input_html: { data: { flatpickr_target: "startTime", action: "change->flatpickr#dynamicPrice" } } %>
@@ -26,7 +30,7 @@
     <p>Total price : <span data-flatpickr-target="totalPrice" data-unit-price="<%= @stuff.price %>">0</span> € </p>
     <%= f.submit 'Book', class: "btn btn-outline-info" %>
   <% end %>
-
+  <% end %>
 <br>
 <br>
   <% if current_user == @stuff.user%>

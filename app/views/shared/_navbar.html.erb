@@ -9,12 +9,14 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-      <%= link_to "Home", root_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Profil", profiles_path, class: "nav-link" %>
-      </li>
+      <%= form_with url: root_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Search article or a sport"
+          %>
+        <%= submit_tag "Search", name: "", class: "btn btn-outline-success my-2 my-sm-0 search-space"%>
+      <% end %>
 
       <li class="nav-item dropdown">
 
@@ -36,6 +38,13 @@
             </div>
           </li>
 
+    </ul>
+
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <%= link_to "Profil", profiles_path, class: "nav-link" %>
+      </li>
+
       <li class="nav-item">
         <% if current_user %>
           <%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link" %>
@@ -43,21 +52,10 @@
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>
         <% end %>
       </li>
-
     </ul>
-      <%= form_with url: root_path, method: :get, class: "d-flex" do %>
-            <%= text_field_tag :query,
-                  params[:query],
-                  class: "form-control",
-                  placeholder: "Search article or a sport"
-              %>
-            <%= submit_tag "Search", name: "", class: "btn btn-outline-success my-2 my-sm-0" %>
-          <% end %>
-
-
+  </div>
+</nav>
     <%# <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form> %>
-  </div>
-</nav>
