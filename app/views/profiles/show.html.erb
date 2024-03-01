@@ -1,6 +1,7 @@
-<div class="container" style="height: 50vh">
-<br>
-  <%= link_to raw('<i class="fa-solid fa-arrow-left"></i>'), root_path, class: "mt-5 fleche fleche-show" %>
+
+<div class="container bzr">
+  <%= link_to raw('<i class="fa-solid fa-arrow-left"></i>'), root_path, class: "mt-5 fleche" %>
+
   <p style="color: green"><%= notice %></p>
   <h1 style="font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 32px; font-weight: bold;">Profiles</h1>
   <h2 style="font-family: 'Helvetica Neue', Arial, sans-serif; text-align: center; font-size: 32px; font-weight: bold;">Your bookings</h2>
@@ -9,20 +10,18 @@
     <div class="card-category-profile" style="background-color: #f9f9f9; border: 1px solid #ddd; padding: 20px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
       <h3 style="font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 18px; font-weight: bold;"><%= booking.stuff.name %></h3>
       <p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; color: #666;"><%= booking.stuff.category %></p>
-
       <% date_starting = booking.date_starting.to_date %>
       <% date_ending = booking.date_ending.to_date %>
       <% nbr_of_nights = (date_ending - date_starting).to_i %>
       <% total_price = booking.stuff.price * nbr_of_nights %>
-
       <p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; color: #666;">Total Days: <%= nbr_of_nights %></p>
       <p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; color: #666;">Total Price: <%= total_price %> €</p>
+      <p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; color: #666;"><%= booking.status %></p>
     </div>
   <% end %>
-</div>
-
-
   </div>
+
+</div>
 
   <div class="container bzr"style="margin-top: 100px;">
 
@@ -41,6 +40,37 @@
       <div style="text-align: right;">
         <%= link_to raw('<i class="fa-solid fa-trash"></i>'), stuff_path(stuff), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "bin", style: "color: #999; font-size: 16px;" %>
       </div>
+
+      <% if stuff.bookings.where(status: "pending").any? %>
+<!-- Button trigger modal -->
+        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+           Booking pending
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Booking pending</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <% stuff.bookings.where(status: "pending").each do |booking| %>
+                  <p>You got a Book for your stuff :</p>
+                  <p> <%= booking.stuff.name %></p>
+                  <%= link_to raw('<i class="fa-solid fa-check"></i>'), confirm_booking_path(booking), data: {turbo_method: :patch}, class:"text-dark" %>
+                  /
+                  <%= link_to raw('<i class="fa-solid fa-xmark"></i>'), decline_booking_path(booking),  data: {turbo_method: :patch}, class:"text-dark" %>
+                <% end %>
+
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
   <% end %>
 </div>

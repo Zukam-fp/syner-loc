@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show]
+  before_action :set_booking, only: [:show, :confirm, :decline]
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
@@ -46,6 +46,19 @@ class BookingsController < ApplicationController
       render :edit, status: :unprocessable_entity
     end
   end
+
+  def confirm
+    @booking.status = "accepted"
+    @booking.save
+    redirect_to profiles_path
+  end
+
+  def decline
+    @booking.status = "declined"
+    @booking.save
+    redirect_to profiles_path
+  end
+
 
   private
 
