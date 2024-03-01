@@ -1,7 +1,7 @@
 <div class="container">
 <br>
 <br>
-
+<br>
 <h2>Book a stuff</h2>
 <%= link_to raw('<i class="fa-solid fa-arrow-left"></i>'), root_path, class: "mt-5 fleche" %>
 <div class="card-product-infos" style="display: flex; align-items: center;">
@@ -10,7 +10,7 @@
   <% else %>
     <!-- Ajoutez un message ou un contenu alternatif ici si aucune image n'est attachée -->
   <% end %>
-  <div class="card-product" style="width: 950px;">
+  <div class="card-product" style="width: 650px;">
     <br>
     <h2><%= @stuff.name.capitalize %></h2>
     <h2><%= @stuff.category %></h2>
