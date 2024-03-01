@@ -1,6 +1,8 @@
 class StuffsController < ApplicationController
-  before_action :set_stuff, only: %i[show destroy]
+
+  before_action :set_stuff, only: %i[show destroy edit update]
   before_action :authenticate_user!, only: [:new, :create]
+
 
   def index
     @stuffs = Stuff.all
@@ -48,6 +50,18 @@ class StuffsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @stuff.user == current_user
+      @stuff.edit(stuff_params)
+      redirect_to stuff_path(@stuff)
+    else
+      redirect_to root_path, alert: "Vous ne pouvez pas modifier cette article"
+    end
+  end
+
   private
 
   def set_stuff
@@ -55,6 +69,6 @@ class StuffsController < ApplicationController
   end
 
   def stuff_params
-    params.require(:stuff).permit(:name, :category, :price, :image)
+    params.require(:stuff).permit(:name, :category, :price, :image, :address)
   end
 end
