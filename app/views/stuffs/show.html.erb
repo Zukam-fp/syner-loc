@@ -3,21 +3,21 @@
 <br>
 
 <h2>Book a stuff</h2>
-
 <%= link_to raw('<i class="fa-solid fa-arrow-left"></i>'), root_path, class: "mt-5 fleche" %>
-
-<div class="card-product">
-   <br>
-   <h2><%= @stuff.name.capitalize %></h2>
-   <h2><%= @stuff.category %></h2>
-   <p><%= @stuff.price %>€/jours</p>
-  <div class="card-product-infos">
-   <% if @stuff.image.attached? %>
-   <%= cl_image_tag @stuff.image.key,class: "card-product img"  %>
-   <% else %>
-   <% end %>
+<div class="card-product-infos" style="display: flex; align-items: center;">
+  <% if @stuff.image.attached? %>
+    <%= cl_image_tag @stuff.image.key, class: "card-product img" %>
+  <% else %>
+    <!-- Ajoutez un message ou un contenu alternatif ici si aucune image n'est attachée -->
+  <% end %>
+  <div class="card-product" style="width: 950px;">
+    <br>
+    <h2><%= @stuff.name.capitalize %></h2>
+    <h2><%= @stuff.category %></h2>
+    <p><%= @stuff.price %>€/jour</p>
   </div>
 </div>
+
   <% if current_user == @stuff.user %>
   <%= link_to raw('<i class="fa-solid fa-pen-to-square"></i>'), edit_stuff_path(@stuff) %>
   <% else %>
