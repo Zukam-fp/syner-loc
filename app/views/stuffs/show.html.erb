@@ -14,13 +14,15 @@
     <br>
     <h2><%= @stuff.name.capitalize %></h2>
     <h2><%= @stuff.category %></h2>
-    <p><%= @stuff.price %>€/jour</p>
+
+    <p><%= @stuff.price %>€/day</p>
   </div>
 </div>
 
   <% if current_user == @stuff.user %>
   <%= link_to raw('<i class="fa-solid fa-pen-to-square"></i>'), edit_stuff_path(@stuff) %>
   <% else %>
+
   <%= simple_form_for [@stuff, @booking], data: { controller: 'flatpickr' } do |f| %>
     <%= f.input :date_starting, as: :string, input_html: { data: { flatpickr_target: "startTime", action: "change->flatpickr#dynamicPrice" } } %>
     <%= f.input :date_ending, as: :string, input_html: { data: { flatpickr_target: "endTime", action: "change->flatpickr#dynamicPrice" }, id: 'end_time' } %>
