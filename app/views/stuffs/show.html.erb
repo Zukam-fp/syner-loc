@@ -4,7 +4,7 @@
 <br>
 <h2>Book a stuff</h2>
 <%= link_to raw('<i class="fa-solid fa-arrow-left"></i>'), root_path, class: "mt-5 fleche" %>
-<div class="card-product-infos" style="display: flex; align-items: center;">
+<div class="card-product-infos card-s" style="display: flex; align-items: center;">
   <% if @stuff.image.attached? %>
     <%= cl_image_tag @stuff.image.key, class: "card-product img" %>
   <% else %>
@@ -15,7 +15,7 @@
     <h2><%= @stuff.name.capitalize %></h2>
     <h2><%= @stuff.category %></h2>
 
-    <p><%= @stuff.price %>€/day</p>
+    <p style="margin-right: 60px;"><%= @stuff.price %>€/day</p>
   </div>
 </div>
 
