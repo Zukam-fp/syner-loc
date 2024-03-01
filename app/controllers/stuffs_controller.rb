@@ -1,5 +1,5 @@
 class StuffsController < ApplicationController
-  before_action :set_stuff, only: %i[show destroy]
+  before_action :set_stuff, only: %i[show destroy edit update]
 
   def index
     @stuffs = Stuff.all
@@ -44,6 +44,18 @@ class StuffsController < ApplicationController
       redirect_to root_path, notice: 'Le stuff a bien été supprimé.'
     else
       redirect_to root_path, alert: 'Vous ne pouvez pas supprimer ce stuff.'
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @stuff.user == current_user
+      @stuff.edit(stuff_params)
+      redirect_to stuff_path(@stuff)
+    else
+      redirect_to root_path, alert: "Vous ne pouvez pas modifier cette article"
     end
   end
 
