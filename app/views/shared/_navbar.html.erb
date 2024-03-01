@@ -32,9 +32,11 @@
 
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
+      <%= link_to "New Stuff", new_stuff_path, class:"btn btn-outline-secondary" %>
+      </li>
+      <li class="nav-item">
         <%= link_to "Profil", profiles_path, class: "nav-link" %>
       </li>
-
       <li class="nav-item">
         <% if current_user %>
           <%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link" %>

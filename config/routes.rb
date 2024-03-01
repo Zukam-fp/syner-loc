@@ -11,7 +11,12 @@ Rails.application.routes.draw do
       resources :bookings, only: [:new, :create]
     end
 
-  resources :bookings, only: [:edit, :update]
+  resources :bookings, only: [:edit, :update] do
+    member do
+      patch :confirm
+      patch :decline
+    end
+  end
 
     get 'profiles', to: 'profiles#show'
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
