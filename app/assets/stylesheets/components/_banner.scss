@@ -9,7 +9,6 @@ body {
 }
 
 .container {
-  height: 100vh;
   width: 100%;
   position: relative;
   text-align: center;
@@ -103,4 +102,8 @@ body {
   #img-6 {
     display: none;
   }
+}
+
+.banner-change {
+  height: 100vh;
 }
