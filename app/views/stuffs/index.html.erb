@@ -24,29 +24,27 @@
   <div id="img-6" class="img-container sixth-animation">
     <img class="img" src="https://th.bing.com/th/id/OIP.RnYbvHKx2SeCCcAHSI5PLAHaK2?rs=1&pid=ImgDetMain">
   </div>
-
-  <div id="img-7" class="img-container seventh-animation">
-  <img src="https://cdn.midjourney.com/cdce8dc5-5159-4be2-a585-a4baf80ef2d0/0_3.webp" alt="syner logo">
-  </div>
 </div>
 <br>
-<br>
+<div class="d-flex justify-content-center">
+  <h2>Syner'Loc Rent, share, excel</h2>
+</div>
+  <br>
+<div class="d-flex justify-content-center">
+  <h3>Your sports equipment at your fingertips!</h3>
+</div>
 <br>
 <br>
 <div class="d-flex justify-content-center">
   <h1 style="font-size: 60px;">Stuffs</h1>
 </div>
-
 <br>
 <br>
-
 <div class="d-flex justify-content-center" >
     <%= link_to "New Stuff", new_stuff_path, class:"btn btn-outline-secondary" %>
   </div>
-
 <br>
 <br>
-
 <div style="display: flex;">
   <div class="cards" style="display: inline-grid; margin-block-end: auto;">
     <% @stuffs.each do |stuff| %>
@@ -66,10 +64,9 @@
       </div>
     <% end %>
   </div>
-
-  <div style=" height: 100vh; width: 50%; margin-right: 10px; margin-left: 10px; position: relative; overflow: hidden; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);"
+  <div style="position: sticky; top: 0; height: 100vh; width: 50%; margin-right: 10px; margin-left: 10px; overflow: hidden; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
+</div>
 </div>
