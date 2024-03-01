@@ -12,6 +12,8 @@ class ProfilesController < ApplicationController
     @stuffs = Stuff.where(user: current_user)
   end
 
+
+
   # def set_profile
   #   @profile = Profile.find(params[:id])
   # end
