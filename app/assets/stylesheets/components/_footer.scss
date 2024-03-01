@@ -6,9 +6,9 @@
   height: 50px;
   padding: 0px 50px;
   color: rgb(243, 240, 240);
+  position: fixed; // Ajout de cette ligne
   bottom: 0;
   width: 100%;
-  position: fixed;
 }
 .footer-links {
   display: flex;
