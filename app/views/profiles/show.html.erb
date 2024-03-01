@@ -39,20 +39,19 @@
 <p></p>
 <p></p>
 
-  </div>
+</div>
   <div class="container"style="margin-top: 100px;">
   <h3 style="font-family: 'Helvetica Neue', Arial, sans-serif; text-align: center; font-size: 32px; font-weight: bold;">Your stuffs</h3>
   <div class="cards">
-  <% @stuffs.each do |stuff| %>
-    <div class="card-category" style="background-color: #f9f9f9; border: 1px solid #ddd; padding: 20px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-      <h3 style="font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 18px; font-weight: bold;"><%= stuff.name %></h3>
-      <p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; color: #666;"><%= stuff.category %></p>
-      <p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; color: #333;">Price: <%= stuff.price %> €</p>
-      <div style="text-align: right;">
-        <%= link_to raw('<i class="fa-solid fa-trash"></i>'), stuff_path(stuff), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "bin", style: "color: #999; font-size: 16px;" %>
+    <% @stuffs.each do |stuff| %>
+      <div class="card-category" style="background-color: #f9f9f9; border: 1px solid #ddd; padding: 20px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+        <h3 style="font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 18px; font-weight: bold;"><%= stuff.name %></h3>
+        <p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; color: #666;"><%= stuff.category %></p>
+        <p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; color: #333;">Price: <%= stuff.price %> €</p>
+        <div style="text-align: right;">
+          <%= link_to raw('<i class="fa-solid fa-trash"></i>'), stuff_path(stuff), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "bin", style: "color: #999; font-size: 16px;" %>
+        </div>
       </div>
-    </div>
-  <% end %>
-</div>
-
+    <% end %>
+  </div>
 </div>
